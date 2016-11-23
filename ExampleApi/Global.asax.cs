@@ -24,15 +24,15 @@ namespace ExampleApi
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
             ProcessInformation.New("ExampleApi");
-            SerilogLogProvider.Instance.Info("{logTag}: begin: {url}", 
-                LogTags.RequestInfo, 
+            SerilogLogProvider.Instance.Info("{logTag:l}: begin: {url:l}", 
+                LogTags.BeginRequest, 
                 HttpContext.Current.Request.Url);
         }
 
         protected void Application_EndRequest(object sender, EventArgs e)
         {
-            SerilogLogProvider.Instance.Info("{logTag}: started: {startTime}, ended: {endTime}",
-                LogTags.RequestInfo,
+            SerilogLogProvider.Instance.Info("{logTag:l}: started: {startTime:yyyy-MM-dd HH:mm:ss.fff}, ended: {endTime:yyyy-MM-dd HH:mm:ss.fff}",
+                LogTags.EndRequest,
                 ProcessInformation.Current.GetProcessStartTime(),
                 DateTime.UtcNow);
         }

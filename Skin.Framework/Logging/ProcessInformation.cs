@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Web;
+using Nest;
 using Newtonsoft.Json;
 
 namespace Skin.Framework.Logging
@@ -16,7 +17,6 @@ namespace Skin.Framework.Logging
             MachineName = System.Environment.MachineName;
             if (Current == null) Store(this);
         }
-
 
         public string ApplicationName { get; set; }
 

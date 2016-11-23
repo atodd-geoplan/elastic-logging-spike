@@ -8,7 +8,7 @@ using Serilog.Sinks.Elasticsearch;
 
 namespace Skin.Framework.Logging
 {
-    public class SerilogLogProvider: ILoggingProvider
+    public class SerilogLogProvider : ILoggingProvider
     {
         public SerilogLogProvider()
         {
@@ -19,24 +19,23 @@ namespace Skin.Framework.Logging
                 {
                     new Uri(
                         "http://elastic:3MHykIo61VAyAOBsVAPYhmem@58d386963d5662da10960b1de5145771.eu-west-1.aws.found.io:9200")
-                });
-                //{
-                //    ModifyConnectionSettings = () => config
-                //};
+                })
+                {
+                    IndexFormat = "skin-logs-{0:yyyy.MM.dd}"
+                };
 
             var sink = new ElasticsearchSink(options);
-         
+
             Log.Logger = new LoggerConfiguration()
+               
                 .Enrich.With<ProcessInfoEnricher>()
                 .Destructure.UsingAttributes()
                 .WriteTo.Sink(sink)
-
-                //.WriteTo.Seq("http://localhost:5341")
-            .CreateLogger();
-
+                .CreateLogger();
         }
 
         private static SerilogLogProvider instance;
+
         public static SerilogLogProvider Instance
         {
             get
@@ -71,8 +70,9 @@ namespace Skin.Framework.Logging
     {
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
         {
-            logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty(
-                    "ProcessInformation", ProcessInformation.Current, true));
+            logEvent.AddPropertyIfAbsent(
+                propertyFactory.CreateProperty("processInformation", ProcessInformation.Current, true)
+            );
         }
     }
 }

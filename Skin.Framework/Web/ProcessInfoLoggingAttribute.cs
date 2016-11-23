@@ -10,7 +10,7 @@ namespace Skin.Framework.Web
         public override void OnActionExecuting(HttpActionContext context)
         {
             SerilogLogProvider.Instance.Info("{logTag}: start: {controller}/{action}", 
-                LogTags.ApiInfo,
+                LogTags.ApiCall,
                 context.ActionDescriptor.ControllerDescriptor.ControllerName, 
                 context.ActionDescriptor.ActionName);
         }
@@ -18,7 +18,7 @@ namespace Skin.Framework.Web
         public override void OnActionExecuted(HttpActionExecutedContext context)
         {
             SerilogLogProvider.Instance.Info("{logTag}: executed: {controller}/{action}", 
-                LogTags.ApiInfo,
+                LogTags.ApiCall,
                 context.ActionContext.ControllerContext.ControllerDescriptor.ControllerName,
                 context.ActionContext.ActionDescriptor.ActionName);
         }

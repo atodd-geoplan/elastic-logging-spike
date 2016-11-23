@@ -4,10 +4,10 @@ using Skin.Framework.Wcf.Configuration;
 
 namespace Skin.Framework.Logging.Wcf
 {
-    [ServiceErrorBehaviour(typeof(HttpErrorHandler))]
-    public abstract class AbstractService
+    [ServiceErrorBehaviour(typeof(WcfServiceErrorHandler))]
+    public abstract class AbstractWcfService
     {
-        protected AbstractService(string applicationName)
+        protected AbstractWcfService(string applicationName)
         {
             var headers = OperationContext.Current.IncomingMessageProperties["httpRequest"];
             var pi = ((HttpRequestMessageProperty)headers).Headers[ProcessInformationMessageInspector.ProcessInformationHeader];

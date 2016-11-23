@@ -3,7 +3,7 @@
 // The content of this file is copyright (C) 2016 Geoplan
 //
 //
-// Name : HttpErrorHandler.cs
+// Name : WcfServiceErrorHandler.cs
 // Creation date: 20 Oct 2016
 // Created by : alastair todd
 // Comments : 
@@ -18,7 +18,7 @@ namespace Skin.Framework.Logging.Wcf
     /// <summary>
     /// An error handler to tell ELMAH about the problem.
     /// </summary>
-    public class HttpErrorHandler : IErrorHandler
+    public class WcfServiceErrorHandler : IErrorHandler
     {
         public bool HandleError(Exception error)
         {

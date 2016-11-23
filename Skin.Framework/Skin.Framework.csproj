@@ -136,9 +136,9 @@
     <Compile Include="Logging\LogTags.cs" />
     <Compile Include="Logging\ProcessInformation.cs" />
     <Compile Include="Logging\SerilogLogProvider.cs" />
-    <Compile Include="Logging\Wcf\AbstractService.cs" />
-    <Compile Include="Logging\Wcf\HttpErrorHandler.cs" />
+    <Compile Include="Logging\Wcf\AbstractWcfService.cs" />
     <Compile Include="Logging\Wcf\ServiceErrorBehaviourAttribute.cs" />
+    <Compile Include="Logging\Wcf\WcfServiceErrorHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShortGuid.cs" />
     <Compile Include="Wcf\Configuration\ProcessInformationMessageInspector.cs" />
