@@ -1,0 +1,1 @@
+﻿This project has been copied from the Elmah.Io.ElasticSearch package and extended to include an instance of Skin's ProcessInformation class on each error log to elasticsearch
