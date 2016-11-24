@@ -12,27 +12,25 @@ namespace Skin.Framework.Logging
 
         public ProcessInformation(string applicationName)
         {
-            ApplicationName = applicationName;
-            RequestId = ShortGuid.NewGuid();
-            MachineName = System.Environment.MachineName;
+            app = applicationName;
+            rid = ShortGuid.NewGuid();
+            host = System.Environment.MachineName;
             if (Current == null) Store(this);
         }
 
-        public string ApplicationName { get; set; }
+        public string app { get; set; }
 
-        public string Environment { get; set; }
+        public string env { get; set; }
 
-        public string Flavour { get; set; }
+        public string rid { get; private set; }
 
-        public string RequestId { get; private set; }
+        public string sid { get; set; }
 
-        public string SessionId { get; set; }
+        public string host { get; set; }
 
-        public string MachineName { get; private set; }
+        public string org { get; set; }
 
-        public string Organisation { get; set; }
-
-        public string Username { get; set; }
+        public string user { get; set; }
 
         // we do not want this logged on every log (given every log entry is timestamped), so make it a method
         private readonly DateTime startTime = DateTime.UtcNow;

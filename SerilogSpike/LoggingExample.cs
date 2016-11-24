@@ -12,7 +12,7 @@ namespace SerilogSpike
             using (var logger = new SerilogLogProvider())
             {
                 var time = DateTime.UtcNow;
-                logger.Info("This is some plain information {time}", time);
+                logger.Info("Starting the logging test app.");
             }
         }
     }

@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Destructurama.Attributed, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2ad38909bb3e5c02, processorArchitecture=MSIL">
       <HintPath>..\packages\Destructurama.Attributed.1.0.2\lib\portable-net45+win+wp80\Destructurama.Attributed.dll</HintPath>
       <Private>True</Private>
@@ -136,6 +140,7 @@
     <Compile Include="Logging\LogTags.cs" />
     <Compile Include="Logging\ProcessInformation.cs" />
     <Compile Include="Logging\SerilogLogProvider.cs" />
+    <Compile Include="Logging\SkinElasticSearchJsonFormatter.cs" />
     <Compile Include="Logging\Wcf\AbstractWcfService.cs" />
     <Compile Include="Logging\Wcf\ServiceErrorBehaviourAttribute.cs" />
     <Compile Include="Logging\Wcf\WcfServiceErrorHandler.cs" />

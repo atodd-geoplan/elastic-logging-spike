@@ -1,9 +1,11 @@
 ﻿using System;
 using Destructurama;
 using Elasticsearch.Net;
+using Newtonsoft.Json.Serialization;
 using Serilog;
 using Serilog.Core;
 using Serilog.Events;
+using Serilog.Formatting.Json;
 using Serilog.Sinks.Elasticsearch;
 
 namespace Skin.Framework.Logging
@@ -21,7 +23,9 @@ namespace Skin.Framework.Logging
                         "http://elastic:3MHykIo61VAyAOBsVAPYhmem@58d386963d5662da10960b1de5145771.eu-west-1.aws.found.io:9200")
                 })
                 {
-                    IndexFormat = "skin-logs-{0:yyyy.MM.dd}"
+                    IndexFormat = "skin-logs-{0:yyyy.MM.dd}",
+                    InlineFields = true//,
+                    //CustomFormatter = new ElasticsearchJsonFormatter(inlineFields:true)
                 };
 
             var sink = new ElasticsearchSink(options);
@@ -29,7 +33,7 @@ namespace Skin.Framework.Logging
             Log.Logger = new LoggerConfiguration()
                
                 .Enrich.With<ProcessInfoEnricher>()
-                .Destructure.UsingAttributes()
+                //.Destructure.UsingAttributes()
                 .WriteTo.Sink(sink)
                 .CreateLogger();
         }

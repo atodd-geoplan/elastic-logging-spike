@@ -13,7 +13,7 @@ namespace Skin.Framework.Logging.Wcf
             var pi = ((HttpRequestMessageProperty)headers).Headers[ProcessInformationMessageInspector.ProcessInformationHeader];
             ProcessInformation.FromString(pi);
             if (ProcessInformation.Current == null) return;
-            ProcessInformation.Current.ApplicationName = applicationName;
+            ProcessInformation.Current.app = applicationName;
             SerilogLogProvider.Instance.Info("{logTag}: requested", LogTags.WcfServiceCall);
         }
     }
